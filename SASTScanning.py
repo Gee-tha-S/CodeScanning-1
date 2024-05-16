@@ -1,7 +1,7 @@
 import requests
 import json
  
-token = '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'
+token = os.getenv("TOKEN")
  
 headers = {
     'Authorization': f'token {token}',
