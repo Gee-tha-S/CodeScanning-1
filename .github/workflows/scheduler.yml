@@ -2,7 +2,7 @@ name: Python Script Scheduler
  
 on:
   schedule:
-    - cron: '5 18 * * *'  # Runs every day at midnight UTC
+    - cron: '25 13 * * *'  # Runs every day at midnight UTC
   workflow_dispatch:
  
 jobs:
