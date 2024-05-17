@@ -22,4 +22,4 @@ jobs:
       run: pip install requests 
       
     - name: Run Python script
-      run: python sowjanya467/CodeScanning/blob/main/SASTScanning.py
+      run: python /main/SASTScanning.py
