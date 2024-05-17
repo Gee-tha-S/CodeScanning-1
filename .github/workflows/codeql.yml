@@ -1,8 +1,9 @@
-name:   Scheduler
+name: Scheduler
  
 on:
   schedule:
-    - cron: '10 18 * * *'  # Runs every day at midnight UTC
+    - cron: '*/5 * * * *'  # Runs accordingly with UTC Time
+  workflow_dispatch:
  
 jobs:
   run-script:
@@ -18,7 +19,13 @@ jobs:
         python-version: '3.10' 
         
     - name: Install dependencies
-      run: pip install requests json
+      run: pip install requests 
       
     - name: Run Python script
       run: python SASTScanning.py
+
+    - name: Upload Results to Artifact
+      uses: actions/upload-artifact@v2
+      with:
+          name: code_scanning_alerts
+          path: code_scanning_alerts.json
