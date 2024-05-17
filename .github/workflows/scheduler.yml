@@ -2,7 +2,7 @@ name: Python Script Scheduler
  
 on:
   schedule:
-    - cron: '25 13 * * *'  # Runs every day at midnight UTC
+    - cron: '37 13 * * *'  # Runs every day at midnight UTC
   workflow_dispatch:
  
 jobs:
@@ -23,3 +23,9 @@ jobs:
       
     - name: Run Python script
       run: python SASTScanning.py
+
+    - name: Upload Results to Artifact
+      uses: actions/upload-artifact@v2
+      with:
+          name: code_scanning_alerts
+          path: code_scanning_alerts.json
