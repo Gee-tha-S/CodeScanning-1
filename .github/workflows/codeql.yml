@@ -2,7 +2,7 @@ name: Scheduler
  
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Runs accordingly with UTC Time
+    - cron: '0 2 * * *'  # Runs accordingly with UTC Time
   workflow_dispatch:
  
 jobs:
