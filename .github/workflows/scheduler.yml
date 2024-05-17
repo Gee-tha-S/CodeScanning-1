@@ -2,7 +2,7 @@ name: Python Script Scheduler
  
 on:
   schedule:
-    - cron: '3 * * * *'  # Runs every day at midnight UTC
+    - cron: '0/3 * * * *'  # Runs every day at midnight UTC
   workflow_dispatch:
  
 jobs:
@@ -22,4 +22,4 @@ jobs:
       run: pip install requests 
       
     - name: Run Python script
-      run: python /CodeScanning/SASTScanning.py
+      run: python sowjanya467/CodeScanning/blob/main/SASTScanning.py
