@@ -18,7 +18,7 @@ def fetch_code_scanning_alerts(token):
         "Authorization": f"token {token}",
         #        "Accept": "application/vnd.github+json",
     }
-    url = f"https://github.com/sowjanya467/ServletsWorkspace/security/code-scanning/alerts"
+    url = f"https://api.github.com/repos/sowjanya467/user_microservice/code-scanning/alerts"
   
     page = 1
     try:
