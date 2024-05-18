@@ -4,7 +4,7 @@ import json
 import os
 
 # Fetch GitHub Personal Access Token from environment variable
-#TOKEN = os.getenv("TOKEN")
+TOKEN = os.getenv("TOKEN")
 print("TOKEN:"),
 params = {'per_page': 100}
 alerts = []
