@@ -47,6 +47,8 @@ def fetch_code_scanning_alerts(token):
 def main():
     alert_data = fetch_code_scanning_alerts(TOKEN)
     if alert_data:
+        print(f"alert data==")
+        print(alert_data)
         with open('code_scanning_alerts.json', 'w') as f:
             json.dump(alert_data, f, indent=4)
     else:
