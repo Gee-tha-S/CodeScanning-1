@@ -1,40 +1,38 @@
-name: Save Results to JSON
+name: save results
  
 on:
-  push:
-    branches:
-      - main
- workflow_dispath:
+  schedule:
+    - cron: '37 13 * * *'  # Runs every day at midnight UTC
+  workflow_dispatch:
+ 
 jobs:
-  generate-and-save:
+  run-script:
     runs-on: ubuntu-latest
- 
+    
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
- 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
- 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          # Add any other dependencies here
-          # e.g., pip install requests
- 
-      - name: Run script and save output to JSON file
-        id: generate_data
-        run: |
-          python CodeScanner.py > result.json
- 
-      - name: Commit and push JSON file
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10' 
+        
+    - name: Install dependencies
+      run: pip install requests 
+      
+    - name: Run Python script
+      env: 
+        TOKEN: ${{secrets.TOKEN}}
+      run: python CodeScanner.py
+
+    - name: Commit and push JSON file
+      run: |
+          git config --global user.name 'sowjanya467'
+          git config --global user.email 'github-actions[bot]@users.msowjanya2014.gmail.com'
           git add result.json
           git commit -m 'Add generated result.json'
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
