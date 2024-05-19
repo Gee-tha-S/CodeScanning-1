@@ -1,4 +1,4 @@
-name: Python Script Scheduler
+name: Store Alerts
  
 on:
   schedule:
@@ -30,8 +30,8 @@ jobs:
       run: |
           git config --global user.name 'sowjanya467'
           git config --global user.email 'github-actions[bot]@users.msowjanya2014.gmail.com'
-          git add result.json
-          git commit -m 'Add generated result.json'
+          git add code_scanning_alerts.json
+          git commit -m 'Add generated code_scanning_alerts.json'
           git push
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
