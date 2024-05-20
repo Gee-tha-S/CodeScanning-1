@@ -9,7 +9,7 @@ jobs:
   run-script:
     runs-on: ubuntu-latest
     permissions: 
-     content :write
+        contents: write
     
     steps:
     - name: Checkout code
