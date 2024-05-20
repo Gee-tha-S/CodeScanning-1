@@ -23,7 +23,7 @@ jobs:
       
     - name: Run Python script
       env: 
-        TOKEN: ${{secrets.TOKEN}}
+        TOKEN: ${{secrets.PAT_TOKEN}}
       run: python CodeScanner.py
 
     - name: Commit and push JSON file
@@ -34,5 +34,5 @@ jobs:
           git commit -m 'Add generated code_scanning_alerts.json'
           git push
       env:
-          TOKEN: ${{ secrets.TOKEN }}
+          TOKEN: ${{ secrets.PAT_TOKEN }}
           
