@@ -15,7 +15,7 @@ repos = response.json()
  
 alerts = []
 for repo in repos:
-    # Fetch code scanning alerts for each repository
+    # Fetch code scanning alerts for each repository in github
     alerts_url = f"https://api.github.com/repos/{repo}/code-scanning/alerts"
     response = requests.get(alerts_url, headers=headers)
     repo_alerts = response.json()
