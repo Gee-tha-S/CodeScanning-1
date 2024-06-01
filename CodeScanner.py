@@ -3,7 +3,7 @@ import requests
 import json
 import os
 
-# Fetch GitHub Personal Access Token from environment variable
+# Fetch GitHub Personal Access Token from environment variable used
 TOKEN = os.getenv("TOKEN")
 print("TOKEN:"),
 params = {'per_page': 100}
