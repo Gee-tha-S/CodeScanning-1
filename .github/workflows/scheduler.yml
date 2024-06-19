@@ -1,33 +1,39 @@
-name: Python Script Scheduler
+
+name: JSON to CSV conversion
  
 on:
-  schedule:
-    - cron: '37 13 * * *'  # Runs every day at midnight UTC
-  workflow_dispatch:
+  workflow_dispatch:  # Allows you to run this workflow manually from the Actions tab
  
 jobs:
-  run-script:
+  fetch-results:
     runs-on: ubuntu-latest
-    
+    permissions: 
+        contents: write
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+ 
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
       
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.10' 
+      - name: Install dependencies
+        run: |
+           pip install requests
+           python -m pip install --upgrade pip
+           pip install pandas
+                  
+      - name: Run script to csv conversion
+        run: python DataConversion.py
         
-    - name: Install dependencies
-      run: pip install requests 
+      - name: Commit and push csv file
+        run: |
+          git config --global user.name 'sowjanya467'
+          git config --global user.email 'github-actions[bot]@users.msowjanya2014@gmail.com'
+          git add code-scanning-results.csv
+          git commit -m 'Add generated code-scanning-results.csv'
+          git push
+        env:
+          TOKEN: ${{ secrets.TOKEN}}
       
-    - name: Run Python script
-      env: 
-        TOKEN: ${{secrets.TOKEN}}
-      run: python CodeScanner.py
-
-    - name: Upload Results to Artifact
-      uses: actions/upload-artifact@v2
-      with:
-          name: code_scanning_alerts
-          path: code_scanning_alerts.json
