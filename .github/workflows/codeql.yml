@@ -24,7 +24,7 @@ jobs:
            pip install pandas
                   
       - name: Run script to csv conversion
-        run: python main.py
+        run: python DataConversion.py
         
       - name: Commit and push csv file
         run: |
