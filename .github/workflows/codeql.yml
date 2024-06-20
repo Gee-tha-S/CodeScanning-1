@@ -30,8 +30,8 @@ jobs:
         run: |
           git config --global user.name 'sowjanya489'
           git config --global user.email 'github-actions[bot]@users.msowjanya2014@gmail.com'
-          git add code-scanning.csv
-          git commit -m 'Add generated code-scanning-alerts.csv'
+          git add code-scanning-results.csv
+          git commit -m 'Add generated code-scanning-results.csv'
           git push
         env:
           TOKEN: ${{ secrets.TOKEN}}
