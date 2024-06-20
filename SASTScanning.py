@@ -4,7 +4,7 @@ from pandas import json_normalize
 import json
  
 # Load the JSON file
-json_file_path = 'fedex.json'
+json_file_path = 'code_scanning_alerts.json'
 with open(json_file_path, 'r') as f:
     data = json.load(f)
  
