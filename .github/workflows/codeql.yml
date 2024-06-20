@@ -22,7 +22,7 @@ jobs:
       run: pip install requests 
       
     - name: Run Python script
-      run: python SASTScanning.py
+      run: python DataConversion.py
 
     - name: Upload Results to Artifact
       uses: actions/upload-artifact@v2
