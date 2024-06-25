@@ -17,7 +17,7 @@ df = json_normalize(data)
 #print(df)
 ##############################################################################
 # Convert the DataFrame to a CSV file
-csv_file_path = 'code-scanning-results.csv'
+csv_file_path = 'code-scanning.csv'
 df.to_csv(csv_file_path, index=False)
  
 print(f"Nested JSON file has been converted to CSV file at: {csv_file_path}")
